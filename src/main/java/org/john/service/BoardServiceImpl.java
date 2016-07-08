@@ -1,6 +1,8 @@
 package org.john.service;
 
 import org.john.domain.BoardVO;
+import org.john.domain.Criteria;
+import org.john.domain.SearchCriteria;
 import org.john.persistence.BoardDAO;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +40,25 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public List<BoardVO> listAll() throws Exception {
         return dao.listAll();
+    }
+
+    @Override
+    public List<BoardVO> listCriteria(Criteria cri) throws Exception {
+        return dao.listCriteria(cri);
+    }
+
+    @Override
+    public int listCountCriteria(Criteria cri) throws Exception {
+        return dao.countPaging(cri);
+    }
+
+    @Override
+    public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception {
+        return dao.listSearch(cri);
+    }
+
+    @Override
+    public int listSearchCount(SearchCriteria cri) throws Exception {
+        return dao.listSearchCount(cri);
     }
 }

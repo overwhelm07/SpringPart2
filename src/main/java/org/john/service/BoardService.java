@@ -1,6 +1,8 @@
 package org.john.service;
 
 import org.john.domain.BoardVO;
+import org.john.domain.Criteria;
+import org.john.domain.SearchCriteria;
 
 import java.util.List;
 
@@ -24,4 +26,12 @@ public interface BoardService {
     public void remove(Integer bno) throws Exception;
 
     public List<BoardVO> listAll() throws Exception;
+
+    public List<BoardVO> listCriteria(Criteria cri) throws Exception;
+
+    public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception;
+
+    public int listSearchCount(SearchCriteria cri)throws Exception;
+
+    public int listCountCriteria(Criteria cri) throws Exception;
 }
