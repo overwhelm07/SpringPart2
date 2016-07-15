@@ -151,6 +151,13 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+
+		<!--객체를 JSON타입의 데이터로 변환하거나 반대의 작업을 할 때 사용-->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.5.4</version>
+		</dependency>
 	
 		<!-- Test -->
 		<dependency>

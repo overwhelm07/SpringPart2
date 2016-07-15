@@ -115,7 +115,7 @@
 </div>
 
 <form id="jobForm">
-    <input type='hidden' name="page" value=${pageMaker.cri.perPageNum}>
+    <input type='hidden' name="page" value=${pageMaker.cri.page}>
     <input type='hidden' name="perPageNum" value=${pageMaker.cri.perPageNum}>
 </form>
 </html>
