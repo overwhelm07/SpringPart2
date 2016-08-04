@@ -30,4 +30,9 @@ public interface BoardDAO {
     public List<BoardVO> listSearch(SearchCriteria cri)throws Exception;
 
     public int listSearchCount(SearchCriteria cri)throws Exception;
+
+    //댓글 카운트 숫자 변경
+    public void updateReplyCnt(Integer bno, int amount) throws Exception;
+
+    public void updateViewCnt(Integer bno) throws Exception;
 }

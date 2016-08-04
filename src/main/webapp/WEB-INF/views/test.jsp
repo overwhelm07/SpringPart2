@@ -102,7 +102,11 @@
         });
     }
 
-    /*for the Paging*/
+    /*for the Paging
+    * data- (Custom data attribute)태그내에서 자유롭게 데이터 정보 삽입 가능
+    * HTML 문서 자체에 데이터를 의미적으로 표현하고 문서 안의 데이터를 사용자 정의로 보다 의미있는 데이터로 다루기 위해서 Custom Data Attributes라는 속성이 추가
+    * http://blog.saltfactory.net/html5/using-html5-custom-data-attributes.html
+    * */
     function getPageList(page){
         $.getJSON("/replies/" + bno + "/" + page, function(data){
             console.log(data.list.length);
@@ -231,6 +235,13 @@
                 }
             }
         });
+    });
+
+    //닫기 버튼
+   $("#closeBtn").on("click", function(){
+       $('#modDiv').hide('slow');
+        /*var objDiv = document.getElementById('modDiv');
+        objDiv.style.display = "none";*/
     });
 
     /*댓글 페이징 이벤트 처리*/

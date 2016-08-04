@@ -23,7 +23,9 @@ public class ReplyController {
     @Inject
     private ReplyService service;
 
+
     @RequestMapping(value = "", method = RequestMethod.POST)
+    //RequestBody의 경우 JSON으로 전송된 데이터를 ReplyVO객체로 변환해주는 역할 변환할 때는 json으로 구성된 문자열!
     public ResponseEntity<String> register(@RequestBody ReplyVO vo){
         ResponseEntity<String> entity = null;
         try{

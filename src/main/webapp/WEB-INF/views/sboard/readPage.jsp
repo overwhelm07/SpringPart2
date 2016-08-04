@@ -62,6 +62,7 @@
     <!-- /.row -->
 
 
+    <%--새로운 댓글 및 댓글 리스트--%>
     <div class="row">
         <div class="col-md-12">
 
@@ -89,10 +90,13 @@
             <!-- The time line -->
             <ul class="timeline">
                 <!-- timeline time label -->
-                <li class="time-label" id="repliesDiv"><span class="bg-green">
-						Replies List </span></li>
+                <li class="time-label" id="repliesDiv">
+                    <span class="bg-green">
+						Replies List <small id="replycntSmall"> [ ${boardVO.replycnt} ] </small>
+                    </span>
+                </li>
             </ul>
-
+            <%--댓글 목록--%>
             <div class='text-center'>
                 <ul id="pagination" class="pagination pagination-sm no-margin ">
 
@@ -130,6 +134,8 @@
 </section>
 <!-- /.content -->
 
+
+<%--댓글 handlebar--%>
 <script id="template" type="text/x-handlebars-template">
     {{#each .}}
     <li class="replyLi" data-rno={{rno}}>
@@ -179,6 +185,8 @@
             printPaging(data.pageMaker, $(".pagination"));
 
             $("#modifyModal").modal('hide');
+            //댓글 삭제시 댓글의 페이징 처리 시 댓글의 숫자를 이용해서 갱신
+            $("#replycntSmall").html("[ " + data.pageMaker.totalCount + " ]");
 
         });
     }
@@ -207,6 +215,7 @@
 
     $("#repliesDiv").on("click", function () {
 
+        console.log($(".timeline li").size());
         if ($(".timeline li").size() > 1) {
             return;
         }
@@ -225,7 +234,7 @@
 
     });
 
-
+    /*댓글 등록 이벤트 처리*/
     $("#replyAddBtn").on("click", function () {
 
         var replyerObj = $("#newReplyWriter");
@@ -256,7 +265,7 @@
         });
     });
 
-
+    //각 댓글의 버튼 이벤트 처리
     $(".timeline").on("click", ".replyLi", function (event) {
 
         var reply = $(this);

@@ -41,6 +41,12 @@ public class ReplyDAOImpl implements ReplyDAO{
         session.update(namespace + ".delete", rno);
     }
 
+
+    @Override
+    public int getBno(Integer rno) throws Exception {
+        return session.selectOne(namespace + ".getBno", rno);
+    }
+
     @Override
     public List<ReplyVO> listPage(Integer bno, Criteria cri) throws Exception {
         Map<String, Object> paramMap = new HashMap<String, Object>();

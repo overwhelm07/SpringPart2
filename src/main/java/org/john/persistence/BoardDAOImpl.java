@@ -7,7 +7,9 @@ import org.john.domain.SearchCriteria;
 import org.springframework.stereotype.Repository;
 
 import javax.inject.Inject;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by JeongHeon on 2016. 7. 5..
@@ -71,5 +73,21 @@ public class BoardDAOImpl implements BoardDAO{
     @Override
     public int listSearchCount(SearchCriteria cri) throws Exception {
         return session.selectOne(namespace + ".listSearchCount", cri);
+    }
+
+    @Override
+    public void updateReplyCnt(Integer bno, int amount) throws Exception {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+
+        paramMap.put("bno", bno);
+        paramMap.put("amount", amount);
+
+        session.update(namespace + ".updateReplyCnt", paramMap);
+        //session.update(namespace + ".updateReplyCnt");
+    }
+
+    @Override
+    public void updateViewCnt(Integer bno) throws Exception {
+        session.update(namespace + ".updateViewCnt", bno);
     }
 }

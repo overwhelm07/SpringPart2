@@ -60,11 +60,20 @@
     <select id="listSearchCount" resultType="int">
         <![CDATA[
         select count(bno) from tbl_board where bno > 0
-
         ]]>
         <include refid="search"></include>
-
     </select>
+
+    <update id="updateReplyCnt">
+        update tbl_board set replycnt = replycnt + #{amount} where bno = #{bno}
+    </update>
+
+
+
+    <!-- 조회 숫자 처리 -->
+    <update id="updateViewCnt">
+        update tbl_board set viewcnt = viewcnt + 1 where bno = #{bno}
+    </update>
 
     <sql id="search">
         <if test="searchType != null">

@@ -12,6 +12,15 @@ public class BoardVO {
     private String writer;
     private Date regdate;
     private int viewcnt;
+    private int replycnt;
+
+    public int getReplycnt() {
+        return replycnt;
+    }
+
+    public void setReplycnt(int replycnt) {
+        this.replycnt = replycnt;
+    }
 
     public Integer getBno() {
         return bno;
@@ -70,6 +79,7 @@ public class BoardVO {
                 ", writer='" + writer + '\'' +
                 ", regdate=" + regdate +
                 ", viewcnt=" + viewcnt +
+                ", replycnt=" + replycnt +
                 '}';
     }
 }
