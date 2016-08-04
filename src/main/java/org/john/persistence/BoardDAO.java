@@ -35,4 +35,12 @@ public interface BoardDAO {
     public void updateReplyCnt(Integer bno, int amount) throws Exception;
 
     public void updateViewCnt(Integer bno) throws Exception;
+
+    public void addAttach(String fullName) throws Exception;
+
+    public List<String> getAttach(Integer bno) throws Exception;
+
+    //파일 업로드 수정, 삭제
+    public void deleteAttach(Integer bno) throws Exception;
+    public void replaceAttach(String fullName, Integer bno)throws Exception;
 }

@@ -22,6 +22,17 @@
 </beans:bean>
 	
 	<context:component-scan base-package="org.john.controller" />
+
+	<!--MVC에서 파일 업로드를 처리하기 위해서 들어오는 데이터를 처리하는 객체가 필요함!-->
+	<beans:bean id="multipartResolver"
+				class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="/Users/JeongHeon/Desktop/SpringStudy">
+		</beans:constructor-arg>
+	</beans:bean>
 	
 	
 	
